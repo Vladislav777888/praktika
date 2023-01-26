@@ -181,14 +181,6 @@ const HomePage = () => {
               onClick={onMovieClick}
               movieId={movieId}
             />
-
-            {/* {searchMovies.length > 0 && location.search !== '' && (
-              <MoviesList
-                movies={searchMovies}
-                onClick={onMovieClick}
-                movieId={movieId}
-              />
-            )} */}
           </Container>
         </Section>
       )}
