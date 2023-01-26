@@ -83,26 +83,6 @@ export const Layout = () => {
 
       <ToastContainer />
       <Outlet />
-      {/* <main>
-        {!location.pathname.includes('library') &&
-          location.search !== '' &&
-          status === STATUS.success && (
-            <Section>
-              <Container>
-                <Title>Filmoteka</Title>
-                <MoviesList
-                  movies={movies}
-                  onClick={onMovieClick}
-                  movieId={movieId}
-                />
-              </Container>
-            </Section>
-          )}
-        {status === STATUS.loading && <Loader />}
-        {status === STATUS.error && location.search !== '' && <NotFound />}
-
-        {location.search === '' && <Outlet />}
-      </main> */}
     </>
   );
 };
