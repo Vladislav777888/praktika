@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/praktika/static/css/main.f0f07654.css",
-    "main.js": "/praktika/static/js/main.77d9a390.js",
+    "main.js": "/praktika/static/js/main.45f4f072.js",
     "static/media/header_main1280@2x.png": "/praktika/static/media/header_main1280@2x.2fd888cc68e70f17b695.png",
     "static/media/header_main768@2x.png": "/praktika/static/media/header_main768@2x.303b461c15bbea131e3a.png",
     "static/media/header_main320@2x.png": "/praktika/static/media/header_main320@2x.ef20f5ddae9de20ce322.png",
@@ -12,10 +12,10 @@
     "static/media/symbol-defs.svg": "/praktika/static/media/symbol-defs.41ee9451e46047acf3e12710c635ea60.svg",
     "index.html": "/praktika/index.html",
     "main.f0f07654.css.map": "/praktika/static/css/main.f0f07654.css.map",
-    "main.77d9a390.js.map": "/praktika/static/js/main.77d9a390.js.map"
+    "main.45f4f072.js.map": "/praktika/static/js/main.45f4f072.js.map"
   },
   "entrypoints": [
     "static/css/main.f0f07654.css",
-    "static/js/main.77d9a390.js"
+    "static/js/main.45f4f072.js"
   ]
 }
