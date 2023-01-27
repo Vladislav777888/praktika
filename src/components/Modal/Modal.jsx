@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import sprite from '../../images/svg/symbol-defs.svg';
+import { modalRoot } from '../../constants/refs';
+
 import css from './Modal.module.scss';
 
 export const Modal = ({ onClose, children, active }) => {
@@ -20,7 +23,7 @@ export const Modal = ({ onClose, children, active }) => {
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div
       className={clsx(css.backdrop, {
         [css.isActive]: active,
@@ -40,7 +43,8 @@ export const Modal = ({ onClose, children, active }) => {
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    modalRoot
   );
 };
 

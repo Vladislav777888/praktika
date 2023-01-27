@@ -14,8 +14,8 @@
   opacity: 0;
   pointer-events: none;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.isActive {
     opacity: 1;
@@ -35,7 +35,7 @@
   // left: 50%;
   // top: 50%;
   transform: scale(0.3);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 4px 3px 12px -1px #ff6b0880;
   overflow: auto;
 
