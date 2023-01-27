@@ -1,40 +1,47 @@
-import styled from 'styled-components';
-
-export const Overlay = styled.div`
+.backdrop {
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0px;
+  left: 0;
   z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
 
-  visibility: visible;
-  opacity: 1;
-
-  background-color: #00000025;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (min-width: 1280px) {
-    background-color: transparent;
+  &.isActive {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
   }
+}
 
-  overflow: hidden;
-`;
-
-export const ModalContent = styled.div`
+.modal {
   display: flex;
   padding: 40px 36px;
   width: 280px;
-  background-color: ${p => p.theme.colors.main_background_color};
-  color: ${p => p.theme.colors.main_text_color};
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
   max-height: 95%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  // left: 50%;
+  // top: 50%;
+  transform: scale(0.3);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 4px 3px 12px -1px #ff6b0880;
-  overflow: hidden;
+  overflow: auto;
+
+  &.isActive {
+    transform: scale(1);
+  }
 
   @media screen and (min-width: 320px) {
     flex-direction: column;
@@ -54,9 +61,9 @@ export const ModalContent = styled.div`
     padding: 40px 12px;
     gap: 16px;
   }
-`;
+}
 
-export const StyledButton = styled.button`
+.button {
   width: 30px;
   height: 30px;
 
@@ -69,15 +76,15 @@ export const StyledButton = styled.button`
 
   border: transparent;
   background-color: transparent;
-  color: ${p => p.theme.colors.close_color};
+  color: var(--close-color);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :focus {
-    color: ${p => p.theme.colors.accent_color};
+    color: var(--accent-color);
   }
-`;
+}
 
-export const StyledIcon = styled.svg`
+.icon {
   fill: currentColor;
-`;
+}

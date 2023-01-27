@@ -1,8 +1,10 @@
 import { useState } from 'react';
-// import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { Modal } from 'components/Modal';
+import MovieDetails from 'components/MovieDetails';
+
+import { bodyRef } from 'constants/refs';
 
 import {
   List,
@@ -13,22 +15,17 @@ import {
   Info,
 } from './MoviesList.styled';
 
-import MovieDetails from 'components/MovieDetails';
-
 const MoviesList = ({ movies, onClick, movieId }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // const location = useLocation();
+  const [modalActive, setModalActive] = useState(false);
 
-  const body = document.querySelector('body');
-
-  if (isModalOpen) {
-    body.style.overflow = 'hidden';
+  if (modalActive) {
+    bodyRef.style.overflow = 'hidden';
   } else {
-    body.style.overflow = 'auto';
+    bodyRef.style.overflow = 'auto';
   }
 
   const togleModal = () => {
-    setIsModalOpen(prev => !prev);
+    setModalActive(prev => !prev);
   };
 
   return (
@@ -52,11 +49,9 @@ const MoviesList = ({ movies, onClick, movieId }) => {
         ))}
       </List>
 
-      {isModalOpen && (
-        <Modal onClose={togleModal}>
-          <MovieDetails movieId={movieId} />
-        </Modal>
-      )}
+      <Modal active={modalActive} onClose={togleModal}>
+        {modalActive && <MovieDetails movieId={movieId} />}
+      </Modal>
     </>
   );
 };

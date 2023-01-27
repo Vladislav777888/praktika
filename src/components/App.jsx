@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import HomePage from 'pages/HomePage';
 
+// modalRoot = ModalRoot;
+
 export const App = () => {
   return (
     <Routes>

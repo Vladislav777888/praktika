@@ -19,7 +19,7 @@ import {
 
 import playBtn from '../../images/play-btn/play-btn.png';
 
-const InnerMovieDetails = ({ movie }) => {
+const InnerMovieDetails = ({ movie, movieId }) => {
   const {
     title,
     vote_average,
@@ -86,6 +86,7 @@ InnerMovieDetails.propTypes = {
     popularity: PropTypes.number,
     genres: PropTypes.string,
   }).isRequired,
+  movieId: PropTypes.number.isRequired,
 };
 
 export default InnerMovieDetails;

@@ -19,7 +19,6 @@ const MovieDetails = ({ movieId }) => {
 
       try {
         const data = await getMovieDetails(movieId);
-        console.log(data);
 
         if (data.length === 0) {
           throw new Error('We have nothing for this search');
@@ -80,7 +79,9 @@ const MovieDetails = ({ movieId }) => {
 
   return (
     <>
-      {status === STATUS.success && <InnerMovieDetails movie={movie} />}
+      {status === STATUS.success && (
+        <InnerMovieDetails movie={movie} movieId={movieId} />
+      )}
       {status === STATUS.error && <NotFound />}
       {(status === STATUS.loading || status === STATUS.idle) && <Loader />}
     </>

@@ -1,25 +1,11 @@
 import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-
-import {
-  Overlay,
-  ModalContent,
-  StyledButton,
-  StyledIcon,
-} from './Modal.styled';
+import clsx from 'clsx';
 
 import sprite from '../../images/svg/symbol-defs.svg';
+import css from './Modal.module.scss';
 
-const modalRoot = document.querySelector('#modal-root');
-
-export const Modal = ({ onClose, children }) => {
-  const handleBackdropClick = event => {
-    if (event.currentTarget === event.target) {
-      onClose();
-    }
-  };
-
+export const Modal = ({ onClose, children, active }) => {
   useEffect(() => {
     const handleKeyDown = evt => {
       if (evt.code === 'Escape') {
@@ -34,24 +20,27 @@ export const Modal = ({ onClose, children }) => {
     };
   }, [onClose]);
 
-  return createPortal(
-    <Overlay onClick={handleBackdropClick}>
-      <ModalContent>
-        <StyledButton
-          type="button"
-          onClick={() => {
-            onClose();
-            // navigate(location.state?.from ?? '/');
-          }}
-        >
-          <StyledIcon width="14" height="14">
+  return (
+    <div
+      className={clsx(css.backdrop, {
+        [css.isActive]: active,
+      })}
+      onClick={onClose}
+    >
+      <div
+        className={clsx(css.modal, {
+          [css.isActive]: active,
+        })}
+        onClick={evt => evt.stopPropagation()}
+      >
+        <button className={css.button} type="button" onClick={onClose}>
+          <svg className={css.icon} width="14" height="14">
             <use xlinkHref={sprite + '#icon-close'}></use>
-          </StyledIcon>
-        </StyledButton>
+          </svg>
+        </button>
         {children}
-      </ModalContent>
-    </Overlay>,
-    modalRoot
+      </div>
+    </div>
   );
 };
 

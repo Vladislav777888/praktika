@@ -85,3 +85,8 @@ export const Info = styled.span`
     line-height: 1.2;
   }
 `;
+
+export const Wrapper = styled.div`
+  height: 475px;
+  background-color: ${p => p.theme.colors.main_background_color};
+`;
