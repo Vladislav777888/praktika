@@ -3,14 +3,18 @@ import { SearchForm } from 'components/SearchForm';
 import HomePageInner from 'components/HomePageInner/HomePageInner';
 
 const HomePage = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get('query') ?? '';
-  // console.log(query);
+
+  const updateQuery = value => {
+    const nextParams = value !== '' ? { query: value } : {};
+    setSearchParams(nextParams);
+  };
 
   return (
     <>
-      <SearchForm />
+      <SearchForm onSubmit={updateQuery} />
       <HomePageInner query={query} />
     </>
   );

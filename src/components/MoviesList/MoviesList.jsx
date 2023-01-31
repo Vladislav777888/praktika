@@ -33,12 +33,7 @@ const MoviesList = ({ movies, onClick, movieId }) => {
       <List>
         {movies.map(({ poster_path, title, release_date, filmGenres, id }) => (
           <MovieListItem key={id} onClick={() => onClick(id)}>
-            <StyledLink
-              // to={`/${id}`}
-              onClick={togleModal}
-
-              // state={{ from: location }}
-            >
+            <StyledLink onClick={togleModal}>
               <Img src={poster_path} alt={title} loading="lazy" />
               <Title>{title}</Title>
               <Info>{filmGenres}</Info>

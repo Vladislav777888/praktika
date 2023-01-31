@@ -58,6 +58,10 @@ const MovieDetails = ({ movieId }) => {
           data.overview = 'No description';
         }
 
+        if (!data.release_date) {
+          data.release_date = '';
+        }
+
         setMovie({
           poster_path: data.poster_path,
           title: data.original_title,
@@ -66,6 +70,8 @@ const MovieDetails = ({ movieId }) => {
           overview: data.overview,
           genres: data.genres,
           popularity: data.popularity,
+          release_date: data.release_date.split('-')[0],
+          movieId,
         });
         setStatus(STATUS.success);
       } catch (error) {

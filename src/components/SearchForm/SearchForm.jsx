@@ -3,13 +3,9 @@ import { PageHeaderInnerForm, Form, FormInput } from './SearchForm.styled';
 
 import sprite from '../../images/svg/symbol-defs.svg';
 import { toast } from 'react-toastify';
-import { useSearchParams } from 'react-router-dom';
 
-export const SearchForm = () => {
-  // const [searchValue, setSearchValue] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
-  const [searchValue, setSearchValue] = useState(query);
+export const SearchForm = ({ onSubmit }) => {
+  const [searchValue, setSearchValue] = useState('');
 
   const handleChangeInput = evt => {
     const { value } = evt.target;
@@ -25,9 +21,7 @@ export const SearchForm = () => {
       return;
     }
 
-    // onSubmit(searchValue);
-    const nextParams = searchValue !== '' ? { query: searchValue } : {};
-    setSearchParams(nextParams);
+    onSubmit(searchValue);
 
     setSearchValue('');
   };

@@ -44,3 +44,13 @@ export const getSearchMovies = async (params = {}) => {
 
   return data;
 };
+
+export const getTrailerById = async movie_id => {
+  const { data } = await postsApi.get(`/movie/${movie_id}/videos`, {
+    params: {
+      api_key: '46cf2a6d2c28bead868caabe4f80f475',
+    },
+  });
+
+  return data.results;
+};

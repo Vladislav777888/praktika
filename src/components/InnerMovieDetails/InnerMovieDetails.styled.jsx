@@ -133,6 +133,7 @@ export const ModalButton = styled.button`
   width: 110px;
   height: 44px;
   padding: 5px;
+  cursor: pointer;
 
   :hover,
   :focus {
