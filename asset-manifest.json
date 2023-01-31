@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/praktika/static/css/main.4c84bc8f.css",
-    "main.js": "/praktika/static/js/main.1fb27052.js",
+    "main.css": "/praktika/static/css/main.ee831b1f.css",
+    "main.js": "/praktika/static/js/main.401e572e.js",
     "static/media/header_main1280@2x.png": "/praktika/static/media/header_main1280@2x.2fd888cc68e70f17b695.png",
     "static/media/header_main768@2x.png": "/praktika/static/media/header_main768@2x.303b461c15bbea131e3a.png",
     "static/media/header_main320@2x.png": "/praktika/static/media/header_main320@2x.ef20f5ddae9de20ce322.png",
@@ -11,11 +11,11 @@
     "static/media/play-btn.png": "/praktika/static/media/play-btn.32672866d1d2b5adec0a.png",
     "static/media/symbol-defs.svg": "/praktika/static/media/symbol-defs.41ee9451e46047acf3e12710c635ea60.svg",
     "index.html": "/praktika/index.html",
-    "main.4c84bc8f.css.map": "/praktika/static/css/main.4c84bc8f.css.map",
-    "main.1fb27052.js.map": "/praktika/static/js/main.1fb27052.js.map"
+    "main.ee831b1f.css.map": "/praktika/static/css/main.ee831b1f.css.map",
+    "main.401e572e.js.map": "/praktika/static/js/main.401e572e.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c84bc8f.css",
-    "static/js/main.1fb27052.js"
+    "static/css/main.ee831b1f.css",
+    "static/js/main.401e572e.js"
   ]
 }
