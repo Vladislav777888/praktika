@@ -1,21 +1,27 @@
 {
   "files": {
     "main.css": "/praktika/static/css/main.ee831b1f.css",
-    "main.js": "/praktika/static/js/main.401e572e.js",
+    "main.js": "/praktika/static/js/main.c2c35aeb.js",
+    "static/media/header_library1280@2x.png": "/praktika/static/media/header_library1280@2x.5764a24df378aeb0eae1.png",
+    "static/media/header_library768@2x.png": "/praktika/static/media/header_library768@2x.f70a6d131962aaddc209.png",
     "static/media/header_main1280@2x.png": "/praktika/static/media/header_main1280@2x.2fd888cc68e70f17b695.png",
     "static/media/header_main768@2x.png": "/praktika/static/media/header_main768@2x.303b461c15bbea131e3a.png",
+    "static/media/header_library1280.png": "/praktika/static/media/header_library1280.6deb295d7a08b78cba64.png",
+    "static/media/header_library320@2x.png": "/praktika/static/media/header_library320@2x.548704ea5cd833dcca8a.png",
+    "static/media/header_library768.png": "/praktika/static/media/header_library768.1e8c024c0cf359fb0eed.png",
     "static/media/header_main320@2x.png": "/praktika/static/media/header_main320@2x.ef20f5ddae9de20ce322.png",
     "static/media/header_main1280.png": "/praktika/static/media/header_main1280.6f5a1581b7f5864f1236.png",
     "static/media/header_main768.png": "/praktika/static/media/header_main768.ff3e050bc3c02cb2c2f5.png",
+    "static/media/header_library320.png": "/praktika/static/media/header_library320.a837a185f2e73fc58be7.png",
     "static/media/header_main320.png": "/praktika/static/media/header_main320.fdde46abb252c85efa16.png",
     "static/media/play-btn.png": "/praktika/static/media/play-btn.32672866d1d2b5adec0a.png",
     "static/media/symbol-defs.svg": "/praktika/static/media/symbol-defs.41ee9451e46047acf3e12710c635ea60.svg",
     "index.html": "/praktika/index.html",
     "main.ee831b1f.css.map": "/praktika/static/css/main.ee831b1f.css.map",
-    "main.401e572e.js.map": "/praktika/static/js/main.401e572e.js.map"
+    "main.c2c35aeb.js.map": "/praktika/static/js/main.c2c35aeb.js.map"
   },
   "entrypoints": [
     "static/css/main.ee831b1f.css",
-    "static/js/main.401e572e.js"
+    "static/js/main.c2c35aeb.js"
   ]
 }
