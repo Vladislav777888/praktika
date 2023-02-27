@@ -8,12 +8,18 @@ import { BASE_POSTER_URL, FAKE_POSTER } from 'constants/baseUrl';
 import { NotFound } from 'components/NotFound';
 import { Loader } from 'components/Loader';
 import InnerMovieDetails from 'components/InnerMovieDetails';
+import { useModal } from 'context/ModalContext';
 
-const MovieDetails = ({ movieId }) => {
+const MovieDetails = ({ movieId, deleteMovie }) => {
   const [movie, setMovie] = useState([]);
   const [status, setStatus] = useState(STATUS.idle);
+  const { modalActive } = useModal();
 
   useEffect(() => {
+    if (!movieId || !modalActive) {
+      return;
+    }
+
     const fetchMovieDetails = async () => {
       setStatus(STATUS.loading);
 
@@ -64,14 +70,14 @@ const MovieDetails = ({ movieId }) => {
 
         setMovie({
           poster_path: data.poster_path,
-          title: data.original_title,
+          title: data.title,
           vote_average: data.vote_average,
           vote_count: String(data.vote_count),
           overview: data.overview,
           genres: data.genres,
           popularity: data.popularity,
           release_date: data.release_date.split('-')[0],
-          movieId,
+          id: movieId,
         });
         setStatus(STATUS.success);
       } catch (error) {
@@ -81,12 +87,16 @@ const MovieDetails = ({ movieId }) => {
     };
 
     fetchMovieDetails();
-  }, [movieId]);
+  }, [modalActive, movieId]);
 
   return (
     <>
       {status === STATUS.success && (
-        <InnerMovieDetails movie={movie} movieId={movieId} />
+        <InnerMovieDetails
+          movie={movie}
+          movieId={movieId}
+          deleteMovie={deleteMovie}
+        />
       )}
       {status === STATUS.error && <NotFound />}
       {(status === STATUS.loading || status === STATUS.idle) && <Loader />}

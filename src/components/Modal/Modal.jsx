@@ -7,12 +7,15 @@ import sprite from '../../images/svg/symbol-defs.svg';
 import { modalRoot } from '../../constants/refs';
 
 import css from './Modal.module.scss';
+import { useModal } from 'context/ModalContext';
 
-export const Modal = ({ onClose, children, active }) => {
+export const Modal = ({ children }) => {
+  const { modalActive, togleModal } = useModal();
+
   useEffect(() => {
     const handleKeyDown = evt => {
       if (evt.code === 'Escape') {
-        onClose();
+        togleModal();
       }
     };
 
@@ -21,22 +24,22 @@ export const Modal = ({ onClose, children, active }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [togleModal]);
 
   return createPortal(
     <div
       className={clsx(css.backdrop, {
-        [css.isActive]: active,
+        [css.isActive]: modalActive,
       })}
-      onClick={onClose}
+      onClick={togleModal}
     >
       <div
         className={clsx(css.modal, {
-          [css.isActive]: active,
+          [css.isActive]: modalActive,
         })}
         onClick={evt => evt.stopPropagation()}
       >
-        <button className={css.button} type="button" onClick={onClose}>
+        <button className={css.button} type="button" onClick={togleModal}>
           <svg className={css.icon} width="14" height="14">
             <use xlinkHref={sprite + '#icon-close'}></use>
           </svg>
@@ -50,5 +53,4 @@ export const Modal = ({ onClose, children, active }) => {
 
 Modal.propTypes = {
   children: PropTypes.node,
-  onClose: PropTypes.func,
 };

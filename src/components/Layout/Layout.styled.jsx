@@ -8,7 +8,14 @@ import img3 from '../../images/header/header_main768@2x.png';
 import img4 from '../../images/header/header_main1280.png';
 import img5 from '../../images/header/header_main1280@2x.png';
 
-export const PageHeader = styled.div`
+import img6 from '../../images/header/header_library320.png';
+import img7 from '../../images/header/header_library320@2x.png';
+import img8 from '../../images/header/header_library768.png';
+import img9 from '../../images/header/header_library768@2x.png';
+import img10 from '../../images/header/header_library1280.png';
+import img11 from '../../images/header/header_library1280@2x.png';
+
+export const PageHeaderHome = styled.div`
   width: 100%;
   min-height: 230px;
   background-color: ${p => p.theme.colors.secondary_background_color};
@@ -42,6 +49,44 @@ export const PageHeader = styled.div`
       (min-resolution: 2dppx),
       (min-resolution: 192dpi) {
       background-image: url('${img5}');
+    }
+  }
+`;
+
+export const PageHeaderLibrary = styled.div`
+  width: 100%;
+  min-height: 230px;
+  background-color: ${p => p.theme.colors.secondary_background_color};
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 40px;
+
+  background-image: url('${img6}');
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 2dppx),
+    (min-resolution: 192dpi) {
+    background-image: url('${img7}');
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('${img8}');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 2dppx),
+      (min-resolution: 192dpi) {
+      background-image: url('${img9}');
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url('${img10}');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 2dppx),
+      (min-resolution: 192dpi) {
+      background-image: url('${img11}');
     }
   }
 `;
@@ -144,16 +189,5 @@ export const StyledLinkNav = styled(NavLink)`
       background-color: ${p => p.theme.colors.text_color_error};
       content: '';
     }
-  }
-`;
-
-export const ButtonWraper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 60px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 46px;
   }
 `;

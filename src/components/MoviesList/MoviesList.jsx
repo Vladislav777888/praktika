@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Modal } from 'components/Modal';
@@ -14,9 +13,10 @@ import {
   Title,
   Info,
 } from './MoviesList.styled';
+import { useModal } from 'context/ModalContext';
 
-const MoviesList = ({ movies, onClick, movieId }) => {
-  const [modalActive, setModalActive] = useState(false);
+const MoviesList = ({ movies, onClick, movieId, deleteMovie }) => {
+  const { modalActive, togleModal } = useModal();
 
   if (modalActive) {
     bodyRef.style.overflow = 'hidden';
@@ -24,19 +24,15 @@ const MoviesList = ({ movies, onClick, movieId }) => {
     bodyRef.style.overflow = 'auto';
   }
 
-  const togleModal = () => {
-    setModalActive(prev => !prev);
-  };
-
   return (
     <>
       <List>
-        {movies.map(({ poster_path, title, release_date, filmGenres, id }) => (
+        {movies.map(({ poster_path, title, release_date, genres, id }) => (
           <MovieListItem key={id} onClick={() => onClick(id)}>
             <StyledLink onClick={togleModal}>
               <Img src={poster_path} alt={title} loading="lazy" />
               <Title>{title}</Title>
-              <Info>{filmGenres}</Info>
+              <Info>{genres}</Info>
               <Info> | </Info>
               <Info>{release_date.split('-')[0]}</Info>
             </StyledLink>
@@ -44,8 +40,8 @@ const MoviesList = ({ movies, onClick, movieId }) => {
         ))}
       </List>
 
-      <Modal active={modalActive} onClose={togleModal}>
-        {modalActive && <MovieDetails movieId={movieId} />}
+      <Modal>
+        <MovieDetails movieId={movieId} deleteMovie={deleteMovie} />
       </Modal>
     </>
   );
@@ -57,7 +53,7 @@ MoviesList.propTypes = {
       poster_path: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       release_date: PropTypes.string.isRequired,
-      filmGenres: PropTypes.string.isRequired,
+      filmGenres: PropTypes.string,
       id: PropTypes.number.isRequired,
     }).isRequired
   ).isRequired,

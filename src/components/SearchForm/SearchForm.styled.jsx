@@ -5,9 +5,7 @@ export const PageHeaderInnerForm = styled.div`
   top: 108px;
   left: 50%;
   transform: translateX(-50%);
-  /* margin-top: 54px;
-  margin-left: auto;
-  margin-right: auto; */
+
   width: 280px;
 
   @media screen and (min-width: 768px) {
